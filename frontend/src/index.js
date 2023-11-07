@@ -6,6 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Provider } from 'react-redux'
+import store from './store/index'
+
 const theme = createTheme({
   palette: {
     mode: 'light',
@@ -48,10 +51,12 @@ const theme = createTheme({
 })
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<React.StrictMode>
-<CssBaseline />
-<ThemeProvider theme={theme}>
-<App />
-</ThemeProvider>
-</React.StrictMode>
+  <React.StrictMode>
+    <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
+  </React.StrictMode>
 );
